@@ -51,15 +51,18 @@ function onClickStart() {
 }
 
 function onClickPause() {
-  clearInterval(doit);
-  remainedTime = time + 1;
-  state = 2;
-  console.log('pause');
-  console.log(remainedTime);
+  if (state == 1) {
+    clearInterval(doit);
+    remainedTime = time + 1;
+    state = 2;
+    console.log('pause');
+    console.log(remainedTime);
+  }
 }
 
 function onClickCancel() {
   clearInterval(doit);
+  time = 0;
   timerTxt.innerHTML = '종료';
   state = 0;
 }
