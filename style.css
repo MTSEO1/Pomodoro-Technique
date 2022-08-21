@@ -1,5 +1,26 @@
 body {
+  font-family: 'Noto Sans KR', sans-serif;
+
   background-color: bisque;
+}
+
+.dark-mode {
+  color: white;
+  background-color: rgb(5, 16, 35);
+  transition: background-color 0.5s ease-in-out 0s;
+}
+
+#contanier {
+  text-align: center;
+  background-color: tomato;
+  border-radius: 20px;
+  width: 400px;
+  height: 400px;
+}
+
+.dark-mode #contanier {
+  background-color: rgb(89, 42, 33);
+  transition: background-color 0.5s ease-in-out 0s;
 }
 
 /* .hidden {

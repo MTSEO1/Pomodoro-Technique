@@ -5,17 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="main.js" defer></script>
+    <script src="dark-mode.js" defer></script>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;700&display=swap"
+      rel="stylesheet"
+    />
     <title>뽀모도로</title>
   </head>
   <body>
-    <div id="title"><h1>뽀모도로</h1></div>
-    <div id="descript"><p>25분 집중하고 5분 휴식</p></div>
+    <div id="contanier">
+      <div id="title"><h1>뽀모도로</h1></div>
+      <div id="descript"><p>25분 집중하고 5분 휴식</p></div>
+      <!-- <div>
+        <label for="timer-min">집중시간: </label>
+        <input id="timer-min" type="number" max="60" min="0" value="25" />
+      </div>
+      <div>
+        <label for="break-min">휴식시간:</label>
+        <input id="break-min" type="number" max="60" min="0" value="5" />
+      </div> -->
+      <div>
+        <h3 id="timer">타이머</h3>
+        <button id="start-btn" class="">시작</button>
+        <button id="pause-btn" class="hidden">일시정지</button>
+        <button id="cancel-btn" class="hidden">취소</button>
+      </div>
+    </div>
     <div>
-      <h3 id="timer">타이머</h3>
-      <button id="start-btn" class="">시작</button>
-      <button id="pause-btn" class="hidden">일시정지</button>
-      <button id="cancel-btn" class="hidden">취소</button>
+      <button id="dark">dark</button>
     </div>
   </body>
 </html>

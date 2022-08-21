@@ -2,6 +2,9 @@ const timerTxt = document.getElementById('timer');
 const startBtn = document.getElementById('start-btn');
 const cancelBtn = document.getElementById('cancel-btn');
 const pauseBtn = document.getElementById('pause-btn');
+// const timerMin = parseInt(document.getElementById('timer-min'));
+
+// console.log(typeof timerMin);
 
 //Timer
 let time = '';
@@ -71,10 +74,11 @@ function onClickPause() {
 }
 
 function onClickCancel() {
-  clearInterval(doit);
-  // time = 0;
-  timerTxt.innerHTML = '종료';
-  state = 0;
+  if (state !== 0) {
+    clearInterval(doit);
+    timerTxt.innerHTML = '종료';
+    state = 0;
+  }
 }
 
 startBtn.addEventListener('click', onClickStart);
