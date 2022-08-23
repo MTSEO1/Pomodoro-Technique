@@ -2,6 +2,7 @@ const timerTxt = document.getElementById('timer');
 const startBtn = document.getElementById('start-btn');
 const cancelBtn = document.getElementById('cancel-btn');
 const pauseBtn = document.getElementById('pause-btn');
+const audio = new Audio('sound/beep.mp3');
 // const timerMin = parseInt(document.getElementById('timer-min'));
 
 // console.log(typeof timerMin);
@@ -27,12 +28,14 @@ const timer = () => {
   time--;
   if (time < 0 && state === 1) {
     clearTimeout(getTimer);
+    audio.play();
     timerTxt.innerHTML = '끝, 휴식 시작할까요?';
     state = 3;
     startBtn.classList.remove(HIDDEN_CLASSNAME);
     pauseBtn.classList.add(HIDDEN_CLASSNAME);
   } else if (time < 0 && state === 3) {
     clearTimeout(getTimer);
+    audio.play();
     timerTxt.innerHTML = '휴식 끝, 다시 집중하시겠어요?';
     state = 0;
     startBtn.classList.remove(HIDDEN_CLASSNAME);
