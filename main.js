@@ -18,66 +18,83 @@ let BREAK_TIME = 3;
 
 const HIDDEN_CLASSNAME = 'hidden';
 
-let doit = null;
+let getTimer = null;
 
 const timer = () => {
   min = parseInt(time / 60);
   sec = time % 60;
   timerTxt.innerHTML = `${min} 분 ${sec} 초`;
   time--;
-  if (time < 0 && state == 1) {
-    clearTimeout(doit);
+  if (time < 0 && state === 1) {
+    clearTimeout(getTimer);
     timerTxt.innerHTML = '끝, 휴식 시작할까요?';
     state = 3;
-  } else if (time < 0 && state == 3) {
-    clearTimeout(doit);
+    startBtn.classList.remove(HIDDEN_CLASSNAME);
+    pauseBtn.classList.add(HIDDEN_CLASSNAME);
+  } else if (time < 0 && state === 3) {
+    clearTimeout(getTimer);
     timerTxt.innerHTML = '휴식 끝, 다시 집중하시겠어요?';
     state = 0;
+    startBtn.classList.remove(HIDDEN_CLASSNAME);
+    pauseBtn.classList.add(HIDDEN_CLASSNAME);
   }
 };
 
 function onClickStart() {
   startBtn.classList.add(HIDDEN_CLASSNAME);
   pauseBtn.classList.remove(HIDDEN_CLASSNAME);
-  if (state == 0) {
+  if (state === 0) {
+    console.log('state: ', state);
     state = 1;
+    console.log('state: ', state);
     time = START_TIME;
-    doit = setInterval(timer, 1000);
-  } else if (state == 2) {
+    getTimer = setInterval(timer, 1000);
+  } else if (state === 2) {
+    console.log('state: ', state);
     state = 1;
+    console.log('state: ', state);
     time = remainedTime;
-    doit = setInterval(timer, 1000);
-  } else if (state == 3) {
+    getTimer = setInterval(timer, 1000);
+  } else if (state === 3) {
+    console.log('state: ', state);
     time = BREAK_TIME;
-    doit = setInterval(timer, 1000);
-  } else if (state == 4) {
+    getTimer = setInterval(timer, 1000);
+  } else if (state === 4) {
+    console.log('state: ', state);
     state = 3;
+    console.log('state: ', state);
     time = remainedTime;
-    doit = setInterval(timer, 1000);
+    getTimer = setInterval(timer, 1000);
   }
 }
 
 function onClickPause() {
-  if (state == 1) {
-    clearInterval(doit);
-    remainedTime = time + 1;
+  startBtn.classList.remove(HIDDEN_CLASSNAME);
+  pauseBtn.classList.add(HIDDEN_CLASSNAME);
+  if (state === 1) {
+    clearInterval(getTimer);
+    console.log('state: ', state);
     state = 2;
-    console.log('pause');
-    console.log(remainedTime);
-  } else if (state == 3) {
-    clearInterval(doit);
-    remainedTime = time + 1;
+    remainedTime = time;
+    console.log('state: ', state);
+  } else if (state === 3) {
+    clearInterval(getTimer);
+    console.log('state: ', state);
     state = 4;
-    console.log('pause');
-    console.log(remainedTime);
+    remainedTime = time;
+    console.log('state: ', state);
   }
 }
 
 function onClickCancel() {
   if (state !== 0) {
-    clearInterval(doit);
+    clearInterval(getTimer);
     timerTxt.innerHTML = '종료';
+    console.log('state: ', state);
     state = 0;
+    console.log('state: ', state);
+    startBtn.classList.remove(HIDDEN_CLASSNAME);
+    pauseBtn.classList.add(HIDDEN_CLASSNAME);
   }
 }
 

@@ -1,7 +1,9 @@
 body {
   font-family: 'Noto Sans KR', sans-serif;
-
+  display: flex;
+  justify-content: center;
   background-color: bisque;
+  transition: background-color 0.5s ease-in-out 0s;
 }
 
 .dark-mode {
@@ -13,6 +15,8 @@ body {
 #contanier {
   text-align: center;
   background-color: tomato;
+  transition: background-color 0.5s ease-in-out 0s;
+
   border-radius: 20px;
   width: 400px;
   height: 400px;
@@ -23,6 +27,12 @@ body {
   transition: background-color 0.5s ease-in-out 0s;
 }
 
-/* .hidden {
+.hidden {
   display: none;
-} */
+}
+
+#dark {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
