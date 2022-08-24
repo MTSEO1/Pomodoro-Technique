@@ -7,15 +7,30 @@ const timerMin = document.getElementById('timer-min');
 const breakMin = document.getElementById('break-min');
 const submitMin = document.getElementById('submit-min');
 
+let setTimerMin = parseInt(timerMin.value);
+let setBreakMin = parseInt(breakMin.value);
+
+timerMin.addEventListener('change', () => {
+  setTimerMin = parseInt(timerMin.value);
+  console.log('setTimerMin ', setTimerMin);
+});
+
+breakMin.addEventListener('change', () => {
+  setBreakMin = parseInt(breakMin.value);
+  console.log('setBreakMin ', setBreakMin);
+});
+
 let START_TIME = 25 * 60;
 let BREAK_TIME = 5 * 60;
 
 submitMin.addEventListener('click', () => {
-  if (BREAK_TIME > 0 && START_TIME > 0) {
+  if (setTimerMin > 60 || setBreakMin > 60) {
+    alert('시간을 올바르게 지정해 주세요.');
+  } else if (setTimerMin > 0 && setBreakMin > 0) {
     onClickCancel();
-    BREAK_TIME = parseInt(breakMin.value) * 60;
-    START_TIME = parseInt(timerMin.value) * 60;
-  } else alert('시간 지정을 음수로 할 수 없습니다.');
+    BREAK_TIME = setBreakMin * 60;
+    START_TIME = setTimerMin * 60;
+  } else alert('시간을 올바르게 지정해 주세요.');
 });
 
 //Timer
@@ -100,7 +115,7 @@ function onClickPause() {
 function onClickCancel() {
   if (state !== 0) {
     clearInterval(getTimer);
-    timerTxt.innerHTML = '종료';
+    timerTxt.innerHTML = '리셋';
     console.log('state: ', state);
     state = 0;
     console.log('state: ', state);
