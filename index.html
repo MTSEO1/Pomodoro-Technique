@@ -19,19 +19,24 @@
     <div id="contanier">
       <div id="title"><h1>뽀모도로</h1></div>
       <div id="descript"><p>25분 집중하고 5분 휴식</p></div>
-      <!-- <div>
-        <label for="timer-min">집중시간: </label>
-        <input id="timer-min" type="number" max="60" min="0" value="25" />
-      </div>
       <div>
-        <label for="break-min">휴식시간:</label>
-        <input id="break-min" type="number" max="60" min="0" value="5" />
-      </div> -->
-      <div>
-        <h3 id="timer">타이머</h3>
+        <h3 id="timer">25 분 00 초</h3>
         <button id="start-btn" class="">시작</button>
         <button id="pause-btn" class="hidden">일시정지</button>
         <button id="cancel-btn" class="">취소</button>
+      </div>
+    </div>
+    <div>
+      <div>
+        <label for="timer-min">집중시간(분): </label>
+        <input id="timer-min" type="number" max="60" min="1" value="25" />
+      </div>
+      <div>
+        <label for="break-min">휴식시간(분):</label>
+        <input id="break-min" type="number" max="60" min="1" value="5" />
+      </div>
+      <div>
+        <button id="submit-min">적용하기</button>
       </div>
     </div>
     <div>

@@ -3,9 +3,20 @@ const startBtn = document.getElementById('start-btn');
 const cancelBtn = document.getElementById('cancel-btn');
 const pauseBtn = document.getElementById('pause-btn');
 const audio = new Audio('sound/beep.mp3');
-// const timerMin = parseInt(document.getElementById('timer-min'));
+const timerMin = document.getElementById('timer-min');
+const breakMin = document.getElementById('break-min');
+const submitMin = document.getElementById('submit-min');
 
-// console.log(typeof timerMin);
+let START_TIME = 25 * 60;
+let BREAK_TIME = 5 * 60;
+
+submitMin.addEventListener('click', () => {
+  if (BREAK_TIME > 0 && START_TIME > 0) {
+    onClickCancel();
+    BREAK_TIME = parseInt(breakMin.value) * 60;
+    START_TIME = parseInt(timerMin.value) * 60;
+  } else alert('시간 지정을 음수로 할 수 없습니다.');
+});
 
 //Timer
 let time = '';
@@ -14,16 +25,13 @@ let sec = '';
 
 let state = 0; // 0 = standby, 1 = running, 2 = paused, 3 = break time, 4 = break time paused
 
-let START_TIME = 5;
-let BREAK_TIME = 3;
-
 const HIDDEN_CLASSNAME = 'hidden';
 
 let getTimer = null;
 
 const timer = () => {
   min = parseInt(time / 60);
-  sec = time % 60;
+  sec = parseInt(time % 60);
   timerTxt.innerHTML = `${min} 분 ${sec} 초`;
   time--;
   if (time < 0 && state === 1) {
