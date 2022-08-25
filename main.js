@@ -6,6 +6,7 @@ const audio = new Audio('sound/beep.mp3');
 const timerMin = document.getElementById('timer-min');
 const breakMin = document.getElementById('break-min');
 const submitMin = document.getElementById('submit-min');
+const title = document.querySelector('title');
 
 let setTimerMin = parseInt(timerMin.value);
 let setBreakMin = parseInt(breakMin.value);
@@ -20,9 +21,11 @@ breakMin.addEventListener('change', () => {
   console.log('setBreakMin ', setBreakMin);
 });
 
+//Timer default value
 let START_TIME = 25 * 60;
 let BREAK_TIME = 5 * 60;
 
+//set Timer
 submitMin.addEventListener('click', () => {
   if (setTimerMin > 60 || setBreakMin > 60) {
     alert('시간을 올바르게 지정해 주세요.');
@@ -47,12 +50,14 @@ let getTimer = null;
 const timer = () => {
   min = parseInt(time / 60);
   sec = parseInt(time % 60);
+  title.innerHTML = `${min} : ${sec}`;
   timerTxt.innerHTML = `${min} 분 ${sec} 초`;
   time--;
   if (time < 0 && state === 1) {
     clearTimeout(getTimer);
     audio.play();
     timerTxt.innerHTML = '끝, 휴식 시작할까요?';
+    title.innerHTML = '뽀모도로';
     state = 3;
     startBtn.classList.remove(HIDDEN_CLASSNAME);
     pauseBtn.classList.add(HIDDEN_CLASSNAME);
@@ -60,6 +65,7 @@ const timer = () => {
     clearTimeout(getTimer);
     audio.play();
     timerTxt.innerHTML = '휴식 끝, 다시 집중하시겠어요?';
+    title.innerHTML = '뽀모도로';
     state = 0;
     startBtn.classList.remove(HIDDEN_CLASSNAME);
     pauseBtn.classList.add(HIDDEN_CLASSNAME);
@@ -116,6 +122,7 @@ function onClickCancel() {
   if (state !== 0) {
     clearInterval(getTimer);
     timerTxt.innerHTML = '리셋';
+    title.innerHTML = '뽀모도로';
     console.log('state: ', state);
     state = 0;
     console.log('state: ', state);
