@@ -7,6 +7,7 @@ const timerMin = document.getElementById('timer-min');
 const breakMin = document.getElementById('break-min');
 const submitMin = document.getElementById('submit-min');
 const title = document.querySelector('title');
+const soundBtn = document.getElementById('sound-btn');
 
 let setTimerMin = parseInt(timerMin.value);
 let setBreakMin = parseInt(breakMin.value);
@@ -33,6 +34,7 @@ submitMin.addEventListener('click', () => {
     onClickCancel();
     BREAK_TIME = setBreakMin * 60;
     START_TIME = setTimerMin * 60;
+    console.log('적용완료!');
   } else alert('시간을 올바르게 지정해 주세요.');
 });
 
@@ -42,6 +44,8 @@ let min = '';
 let sec = '';
 
 let state = 0; // 0 = standby, 1 = running, 2 = paused, 3 = break time, 4 = break time paused
+
+let soundstate = 0; // 0 = on, 1 = off
 
 const HIDDEN_CLASSNAME = 'hidden';
 
@@ -55,7 +59,7 @@ const timer = () => {
   time--;
   if (time < 0 && state === 1) {
     clearTimeout(getTimer);
-    audio.play();
+    audioPlay();
     timerTxt.innerHTML = '끝, 휴식 시작할까요?';
     title.innerHTML = '뽀모도로';
     state = 3;
@@ -63,7 +67,7 @@ const timer = () => {
     pauseBtn.classList.add(HIDDEN_CLASSNAME);
   } else if (time < 0 && state === 3) {
     clearTimeout(getTimer);
-    audio.play();
+    audioPlay();
     timerTxt.innerHTML = '휴식 끝, 다시 집중하시겠어요?';
     title.innerHTML = '뽀모도로';
     state = 0;
@@ -130,6 +134,24 @@ function onClickCancel() {
     pauseBtn.classList.add(HIDDEN_CLASSNAME);
   }
 }
+
+function audioPlay() {
+  if (soundstate === 0) {
+    audio.play();
+  } else {
+    return;
+  }
+}
+
+soundBtn.addEventListener('click', () => {
+  if (soundstate === 0) {
+    soundstate = 1; // sound off
+    console.log('soundstate : ', soundstate);
+  } else {
+    soundstate = 0; // sound on
+    console.log('soundstate : ', soundstate);
+  }
+});
 
 startBtn.addEventListener('click', onClickStart);
 pauseBtn.addEventListener('click', onClickPause);

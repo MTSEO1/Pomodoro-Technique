@@ -7,7 +7,7 @@ body {
   font-family: 'Noto Sans KR', sans-serif;
   display: flex;
   justify-content: center;
-  background-color: bisque;
+  background-color: rgb(255, 249, 249);
   transition: background-color 0.5s ease-in-out 0s;
 }
 
@@ -28,7 +28,7 @@ body {
 }
 
 .dark-mode #contanier {
-  background-color: rgb(22, 74, 24);
+  background-color: rgb(76, 152, 78);
   transition: background-color 0.5s ease-in-out 0s;
 }
 
