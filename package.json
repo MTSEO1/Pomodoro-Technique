@@ -1,0 +1,33 @@
+{
+  "name": "pomodoro-technique",
+  "version": "1.0.0",
+  "description": "시간 관리 방법론으로 1980년대 후반 '프란체스코 시릴로'(Francesco Cirillo)가 제안했다. 타이머를 이용해서 25분간 집중해서 일을 한 다음 5분간 휴식하는 방식이다. '뽀모도로'는 이탈리아어로 토마토를 뜻한다. 프란체스코 시릴로가 대학생 시절 토마토 모양으로 생긴 요리용 타이머를 이용해 25분간 집중 후 휴식하는 일처리 방법을 제안한데서 그 이름이 유래했다.",
+  "main": "main.js",
+  "scripts": {
+    "start": "webpack serve --open --mode=development",
+    "build": "webpack --mode=production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MTSEO1/Pomodoro-Technique.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MTSEO1/Pomodoro-Technique/issues"
+  },
+  "homepage": "https://github.com/MTSEO1/Pomodoro-Technique#readme",
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "file-loader": "^6.2.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.10.0"
+  },
+  "dependencies": {
+    "html-webpack-plugin": "^5.5.0"
+  }
+}

@@ -1,0 +1,54 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 200vh;
+  font-family: 'Noto Sans KR', sans-serif;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(255, 249, 249);
+  transition: background-color 0.5s ease-in-out 0s;
+}
+
+i {
+  font-size: 50px;
+  color: tomato;
+}
+
+.dark-mode {
+  color: white;
+  background-color: rgb(5, 16, 35);
+  transition: background-color 0.5s ease-in-out 0s;
+}
+.dark-mode i {
+  color: white;
+  transition: color 0.5s ease-in-out 0s;
+}
+
+#contanier {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  background-color: tomato;
+  transition: background-color 0.5s ease-in-out 0s;
+  border-radius: 50%;
+  width: 500px;
+  height: 500px;
+}
+
+.dark-mode #contanier {
+  background-color: rgb(76, 152, 78);
+  transition: background-color 0.5s ease-in-out 0s;
+}
+
+.hidden {
+  display: none;
+}
+/* 
+#dark {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+} */
