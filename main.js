@@ -7,6 +7,7 @@ const timerMin = document.getElementById('timer-min');
 const breakMin = document.getElementById('break-min');
 const submitMin = document.getElementById('submit-min');
 const title = document.querySelector('title');
+const autoTime = document.getElementById('auto-time');
 const soundBtn = document.getElementById('sound-btn');
 
 let setTimerMin = parseInt(timerMin.value);
@@ -45,7 +46,9 @@ let sec = '';
 
 let state = 0; // 0 = standby, 1 = running, 2 = paused, 3 = break time, 4 = break time paused
 
-let soundstate = 0; // 0 = on, 1 = off
+let soundstate = 1; // 0 = off, 1 = on
+
+let autostate = 0; // 0 = off, 1 = on
 
 const HIDDEN_CLASSNAME = 'hidden';
 
@@ -60,19 +63,31 @@ const timer = () => {
   if (time < 0 && state === 1) {
     clearTimeout(getTimer);
     audioPlay();
-    timerTxt.innerHTML = '끝, 휴식 시작할까요?';
-    title.innerHTML = '뽀모도로';
-    state = 3;
-    startBtn.classList.remove(HIDDEN_CLASSNAME);
-    pauseBtn.classList.add(HIDDEN_CLASSNAME);
+
+    if (autostate === 0) {
+      timerTxt.innerHTML = '끝, 휴식 시작할까요?';
+      title.innerHTML = '뽀모도로';
+      state = 3;
+      startBtn.classList.remove(HIDDEN_CLASSNAME);
+      pauseBtn.classList.add(HIDDEN_CLASSNAME);
+    } else {
+      state = 3;
+      onClickStart();
+    }
   } else if (time < 0 && state === 3) {
     clearTimeout(getTimer);
     audioPlay();
-    timerTxt.innerHTML = '휴식 끝, 다시 집중하시겠어요?';
-    title.innerHTML = '뽀모도로';
-    state = 0;
-    startBtn.classList.remove(HIDDEN_CLASSNAME);
-    pauseBtn.classList.add(HIDDEN_CLASSNAME);
+
+    if (autostate === 0) {
+      timerTxt.innerHTML = '휴식 끝, 다시 집중하시겠어요?';
+      title.innerHTML = '뽀모도로';
+      state = 0;
+      startBtn.classList.remove(HIDDEN_CLASSNAME);
+      pauseBtn.classList.add(HIDDEN_CLASSNAME);
+    } else {
+      state = 0;
+      onClickStart();
+    }
   }
 };
 
@@ -136,7 +151,7 @@ function onClickCancel() {
 }
 
 function audioPlay() {
-  if (soundstate === 0) {
+  if (soundstate === 1) {
     audio.play();
   } else {
     return;
@@ -145,11 +160,21 @@ function audioPlay() {
 
 soundBtn.addEventListener('click', () => {
   if (soundstate === 0) {
-    soundstate = 1; // sound off
+    soundstate = 1; // sound on
     console.log('soundstate : ', soundstate);
   } else {
-    soundstate = 0; // sound on
+    soundstate = 0; // sound off
     console.log('soundstate : ', soundstate);
+  }
+});
+
+autoTime.addEventListener('click', () => {
+  if (autostate === 0) {
+    autostate = 1; // on
+    console.log('auto-time on', autostate);
+  } else {
+    autostate = 0; // off
+    console.log('auto-time off', autostate);
   }
 });
 
