@@ -41,3 +41,4 @@ JavaScript, HTML, CSS 사용.
   - 사운드 On / Off 기능 추가
 - (2022-08-27)
   - 집중시간 / 휴식시간 자동 넘기기 기능 추가
+  - Webpack 번들 작업
