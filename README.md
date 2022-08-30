@@ -44,3 +44,5 @@ JavaScript, HTML, CSS 사용.
   - Webpack 번들 작업
 - (2022-08-29)
   - CSS Toggle button 추가
+- (2022-08-30~31)
+  - Settings Modal 창 추가 (알 수 없는 오류로 시간이 많이 걸림..😢)
