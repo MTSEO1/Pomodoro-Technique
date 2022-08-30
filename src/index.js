@@ -1,6 +1,7 @@
 import { myFunction } from './dark-mode';
 import './style.css';
 import myAudio from './sound/beep.mp3';
+import { displaySet } from './modal';
 
 const timerTxt = document.getElementById('timer');
 const startBtn = document.getElementById('start-btn');

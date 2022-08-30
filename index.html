@@ -8,16 +8,14 @@
       src="https://kit.fontawesome.com/63b5a18384.js"
       crossorigin="anonymous"
     ></script>
-    <!-- <script src="dist/main.js" defer></script> -->
-    <!-- <script src="src/index.js" defer></script> -->
-    <!-- <link rel="stylesheet" href="src/style.css" /> -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;700&display=swap"
       rel="stylesheet"
     />
-    <title>뽀모도로</title>
+    <link rel="stylesheet" href="src/style.css">
+    <title>🍅 뽀모도로</title>
   </head>
   <body>
     <div id=root></div>
@@ -31,39 +29,44 @@
         <button id="cancel-btn" class="">리셋</button>
       </div>
     </div>
-    <div id="settings">
-      <div>
-        <label for="timer-min">집중시간(분): </label>
-        <input id="timer-min" type="number" max="60" min="1" value="25" />
-      </div>
-      <div>
-        <label for="break-min">휴식시간(분):</label>
-        <input id="break-min" type="number" max="60" min="1" value="5" />
-      </div>
-      <div>
-        <button id="submit-min">적용</button>
-      </div>
-      <div>
-        <label for="sound-btn" >알람 소리
-          <input type="checkbox" id="sound-btn" checked>
-          <span class="check" />
-        </input>
-        </label>
-      </div>
-      <div>
-        <label for="auto-time" >시간 자동 넘기기
-          <input type="checkbox" id="auto-time">
-          <span class="check" />
-        </input>
-        </label>
-      </div>
-      <div>
-        <label for="dark" >
-          다크모드
-          <input type="checkbox" name="dark" id="dark">
-          <span class="check" />
-        </input>
-        </label>
+    <div><button id="open-set" >⚙️</button></div>
+    <div class="setting hidden">
+      <div class="settings-background"></div>
+      <div class="settings-contents">
+        <div>
+          <label for="timer-min">집중시간(분): </label>
+          <input id="timer-min" type="number" max="60" min="1" value="25" />
+        </div>
+        <div>
+          <label for="break-min">휴식시간(분):</label>
+          <input id="break-min" type="number" max="60" min="1" value="5" />
+        </div>
+        <div>
+          <button id="submit-min">적용</button>
+        </div>
+        <div>
+          <label for="sound-btn" >알람 소리
+            <input type="checkbox" id="sound-btn" checked>
+            <span class="check" />
+          </input>
+          </label>
+        </div>
+        <div>
+          <label for="auto-time" >시간 자동 넘기기
+            <input type="checkbox" id="auto-time">
+            <span class="check" />
+          </input>
+          </label>
+        </div>
+        <div>
+          <label for="dark" >
+            다크모드
+            <input type="checkbox" name="dark" id="dark">
+            <span class="check" />
+          </input>
+          </label>
+        </div>
+        <div><button id="close-set">닫기</button></div>
       </div>
     </div>
   </body>

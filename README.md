@@ -42,3 +42,5 @@ JavaScript, HTML, CSS 사용.
 - (2022-08-27)
   - 집중시간 / 휴식시간 자동 넘기기 기능 추가
   - Webpack 번들 작업
+- (2022-08-29)
+  - CSS Toggle button 추가
