@@ -12,6 +12,21 @@ body {
   transition: background-color 0.5s ease-in-out 0s;
 }
 
+button {
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  background-color: white;
+  width: 80px;
+  height: 30px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+#timer {
+  margin: 50px 0;
+}
+
 i {
   font-size: 50px;
   color: tomato;
@@ -28,6 +43,7 @@ i {
 }
 
 #contanier {
+  position: relative;
   color: white;
   display: flex;
 
@@ -41,15 +57,33 @@ i {
   height: 300px;
   margin: 30vh;
 }
-
+#open-set {
+  position: absolute;
+  cursor: pointer;
+  top: 20px;
+  right: 35px;
+}
+button #open-set {
+  border: none;
+  background-color: transparent;
+}
 .dark-mode #contanier {
-  background-color: rgb(76, 152, 78);
+  background-color: rgb(128, 0, 0);
+  transition: background-color 0.5s ease-in-out 0s;
+}
+.dark-mode .settings-contents {
+  color: black;
+}
+
+.break-mode #contanier {
+  background-color: rgb(24, 188, 144);
   transition: background-color 0.5s ease-in-out 0s;
 }
 
 .hidden {
   display: none;
 }
+
 /* 
 #dark {
   position: fixed;
@@ -114,12 +148,28 @@ input:checked[type='checkbox']::before {
   position: absolute;
 }
 
-.settings-contents {
+.settings-contents:not(input) {
+  display: flex;
+  justify-content: space-around;
+  align-items: space-around;
+  flex-direction: column;
   text-align: center;
   position: relative;
   background-color: white;
   border-radius: 10px;
   top: 0;
   padding: 10px 25px;
-  width: 40%;
+  width: 400px;
+  height: 300px;
+  font-weight: 500;
+}
+
+.part {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e1e1e1;
+}
+.part:first-child {
+  padding-bottom: 8px;
 }

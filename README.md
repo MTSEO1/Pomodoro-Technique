@@ -46,3 +46,6 @@ JavaScript, HTML, CSS 사용.
   - CSS Toggle button 추가
 - (2022-08-30~31)
   - Settings Modal 창 추가 (알 수 없는 오류로 시간이 많이 걸림..😢)
+  - CSS 수정
+- (2022-09-01)
+  - 기능 / CSS 심플하게 수정

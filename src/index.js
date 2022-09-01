@@ -2,6 +2,7 @@ import { myFunction } from './dark-mode';
 import './style.css';
 import myAudio from './sound/beep.mp3';
 import { displaySet } from './modal';
+import { breakMode } from './break-mode';
 
 const timerTxt = document.getElementById('timer');
 const startBtn = document.getElementById('start-btn');
@@ -42,6 +43,7 @@ submitMin.addEventListener('click', () => {
     onClickCancel();
     BREAK_TIME = setBreakMin * 60;
     START_TIME = setTimerMin * 60;
+    timerTxt.innerHTML = `${START_TIME / 60} 분 0 초`;
     console.log('적용완료!');
   } else alert('시간을 올바르게 지정해 주세요.');
 });
@@ -65,7 +67,7 @@ let getTimer = null;
 const timer = () => {
   min = parseInt(time / 60);
   sec = parseInt(time % 60);
-  title.innerHTML = `${min} : ${sec}`;
+  title.innerHTML = `🍅 ${min} : ${sec}`;
   timerTxt.innerHTML = `${min} 분 ${sec} 초`;
   time--;
   if (time < 0 && state === 1) {
@@ -74,10 +76,11 @@ const timer = () => {
 
     if (autostate === 0) {
       timerTxt.innerHTML = '끝, 휴식 시작할까요?';
-      title.innerHTML = '뽀모도로';
+      title.innerHTML = '🍅 뽀모도로';
       state = 3;
       startBtn.classList.remove(HIDDEN_CLASSNAME);
       pauseBtn.classList.add(HIDDEN_CLASSNAME);
+      cancelBtn.classList.add(HIDDEN_CLASSNAME);
     } else {
       state = 3;
       onClickStart();
@@ -88,10 +91,11 @@ const timer = () => {
 
     if (autostate === 0) {
       timerTxt.innerHTML = '휴식 끝, 다시 집중하시겠어요?';
-      title.innerHTML = '뽀모도로';
+      title.innerHTML = '🍅 뽀모도로';
       state = 0;
       startBtn.classList.remove(HIDDEN_CLASSNAME);
       pauseBtn.classList.add(HIDDEN_CLASSNAME);
+      cancelBtn.classList.add(HIDDEN_CLASSNAME);
     } else {
       state = 0;
       onClickStart();
@@ -102,6 +106,7 @@ const timer = () => {
 function onClickStart() {
   startBtn.classList.add(HIDDEN_CLASSNAME);
   pauseBtn.classList.remove(HIDDEN_CLASSNAME);
+  cancelBtn.classList.remove(HIDDEN_CLASSNAME);
   if (state === 0) {
     console.log('state: ', state);
     state = 1;
@@ -130,6 +135,7 @@ function onClickStart() {
 function onClickPause() {
   startBtn.classList.remove(HIDDEN_CLASSNAME);
   pauseBtn.classList.add(HIDDEN_CLASSNAME);
+  cancelBtn.classList.add(HIDDEN_CLASSNAME);
   if (state === 1) {
     clearInterval(getTimer);
     console.log('state: ', state);
@@ -149,12 +155,13 @@ function onClickCancel() {
   if (state !== 0) {
     clearInterval(getTimer);
     timerTxt.innerHTML = '리셋';
-    title.innerHTML = '뽀모도로';
+    title.innerHTML = '🍅 뽀모도로';
     console.log('state: ', state);
     state = 0;
     console.log('state: ', state);
     startBtn.classList.remove(HIDDEN_CLASSNAME);
     pauseBtn.classList.add(HIDDEN_CLASSNAME);
+    cancelBtn.classList.add(HIDDEN_CLASSNAME);
   }
 }
 
