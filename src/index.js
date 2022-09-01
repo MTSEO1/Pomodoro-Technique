@@ -30,10 +30,10 @@ breakMin.addEventListener('change', () => {
 });
 
 //Timer default value
-let START_TIME = 5;
-let BREAK_TIME = 3;
-// let START_TIME = 25 * 60;
-// let BREAK_TIME = 5 * 60;
+// let START_TIME = 5;
+// let BREAK_TIME = 3;
+let START_TIME = 25 * 60;
+let BREAK_TIME = 5 * 60;
 
 //set Timer
 submitMin.addEventListener('click', () => {
