@@ -30,10 +30,10 @@ breakMin.addEventListener('change', () => {
 });
 
 //Timer default value
-let START_TIME = 5;
-let BREAK_TIME = 3;
-// let START_TIME = 25 * 60;
-// let BREAK_TIME = 5 * 60;
+// let START_TIME = 5;
+// let BREAK_TIME = 3;
+let START_TIME = 25 * 60;
+let BREAK_TIME = 5 * 60;
 
 //set Timer
 submitMin.addEventListener('click', () => {
@@ -135,7 +135,7 @@ function onClickStart() {
 function onClickPause() {
   startBtn.classList.remove(HIDDEN_CLASSNAME);
   pauseBtn.classList.add(HIDDEN_CLASSNAME);
-  cancelBtn.classList.add(HIDDEN_CLASSNAME);
+  cancelBtn.classList.remove(HIDDEN_CLASSNAME);
   if (state === 1) {
     clearInterval(getTimer);
     console.log('state: ', state);
@@ -154,10 +154,11 @@ function onClickPause() {
 function onClickCancel() {
   if (state !== 0) {
     clearInterval(getTimer);
-    timerTxt.innerHTML = '리셋';
+    clearTimeout(getTimer);
     title.innerHTML = '🍅 뽀모도로';
     console.log('state: ', state);
     state = 0;
+    timerTxt.innerHTML = `${START_TIME / 60} 분 0 초`;
     console.log('state: ', state);
     startBtn.classList.remove(HIDDEN_CLASSNAME);
     pauseBtn.classList.add(HIDDEN_CLASSNAME);
