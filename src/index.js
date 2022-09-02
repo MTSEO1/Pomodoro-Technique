@@ -160,6 +160,7 @@ function onClickCancel() {
     title.innerHTML = '🍅 뽀모도로';
     console.log('state: ', state);
     state = 0;
+    contents.classList.remove('break-mode');
     timerTxt.innerHTML = `${START_TIME / 60} 분 0 초`;
     console.log('state: ', state);
     startBtn.classList.remove(HIDDEN_CLASSNAME);
