@@ -26,7 +26,7 @@ button {
 
 #timer {
   margin: 50px 0;
-  font-size: 50px;
+  font-size: 40px;
 }
 
 i {
@@ -48,7 +48,6 @@ i {
   position: relative;
   color: white;
   display: flex;
-
   justify-content: center;
   flex-direction: column;
   text-align: center;
@@ -77,8 +76,8 @@ button #open-set {
   color: black;
 }
 
-.break-mode #contanier {
-  background-color: rgb(24, 188, 144);
+#contanier.break-mode {
+  background-color: rgb(89, 164, 211);
   transition: background-color 0.5s ease-in-out 0s;
 }
 
