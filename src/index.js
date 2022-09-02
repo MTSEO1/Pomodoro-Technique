@@ -1,9 +1,9 @@
-import { myFunction } from './dark-mode';
+import { darkModeBtn } from './dark-mode';
 import './style.css';
 import myAudio from './sound/beep.mp3';
 import { displaySet } from './modal';
-import { breakMode } from './break-mode';
 
+const contents = document.getElementById('contanier');
 const timerTxt = document.getElementById('timer');
 const startBtn = document.getElementById('start-btn');
 const cancelBtn = document.getElementById('cancel-btn');
@@ -112,6 +112,7 @@ function onClickStart() {
     state = 1;
     console.log('state: ', state);
     time = START_TIME;
+    contents.classList.remove('break-mode');
     getTimer = setInterval(timer, 1000);
   } else if (state === 2) {
     console.log('state: ', state);
@@ -122,6 +123,7 @@ function onClickStart() {
   } else if (state === 3) {
     console.log('state: ', state);
     time = BREAK_TIME;
+    contents.classList.add('break-mode');
     getTimer = setInterval(timer, 1000);
   } else if (state === 4) {
     console.log('state: ', state);
@@ -158,6 +160,7 @@ function onClickCancel() {
     title.innerHTML = '🍅 뽀모도로';
     console.log('state: ', state);
     state = 0;
+    contents.classList.remove('break-mode');
     timerTxt.innerHTML = `${START_TIME / 60} 분 0 초`;
     console.log('state: ', state);
     startBtn.classList.remove(HIDDEN_CLASSNAME);
