@@ -54,3 +54,5 @@ JavaScript, HTML, CSS 사용.
   - CSS for WindowsOS 수정 (요청 피드백 대응)
 - (2022-09-02)
   - 휴식 시간 시 컨텐츠 박스 색깔 변경 기능 추가
+- (2022-09-04)
+  - Wake lock API 추가 (noSleep.js 사용 이유 - the original richtr/NoSleep.js to help reduce CPU usage.)

@@ -2,6 +2,9 @@ import { darkModeBtn } from './dark-mode';
 import './style.css';
 import myAudio from './sound/beep.mp3';
 import { displaySet } from './modal';
+import NoSleep from 'nosleep.js';
+
+var noSleep = new NoSleep();
 
 const contents = document.getElementById('contanier');
 const timerTxt = document.getElementById('timer');
@@ -107,6 +110,7 @@ function onClickStart() {
   startBtn.classList.add(HIDDEN_CLASSNAME);
   pauseBtn.classList.remove(HIDDEN_CLASSNAME);
   cancelBtn.classList.remove(HIDDEN_CLASSNAME);
+  noSleep.enable();
   if (state === 0) {
     console.log('state: ', state);
     state = 1;
@@ -159,6 +163,7 @@ function onClickCancel() {
     clearTimeout(getTimer);
     title.innerHTML = '🍅 뽀모도로';
     console.log('state: ', state);
+    noSleep.disable();
     state = 0;
     contents.classList.remove('break-mode');
     timerTxt.innerHTML = `${START_TIME / 60} 분 0 초`;
