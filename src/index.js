@@ -1,6 +1,7 @@
 import { darkModeBtn } from './dark-mode';
 import './style.css';
 import myAudio from './sound/beep.mp3';
+import onAudio from './sound/start.mp3';
 import { displaySet } from './modal';
 import NoSleep from 'nosleep.js';
 
@@ -12,6 +13,7 @@ const startBtn = document.getElementById('start-btn');
 const cancelBtn = document.getElementById('cancel-btn');
 const pauseBtn = document.getElementById('pause-btn');
 const audio = new Audio(myAudio);
+const audioStart = new Audio(onAudio); // 오디오 켜는 기능
 const timerMin = document.getElementById('timer-min');
 const breakMin = document.getElementById('break-min');
 const submitMin = document.getElementById('submit-min');
@@ -111,6 +113,7 @@ function onClickStart() {
   pauseBtn.classList.remove(HIDDEN_CLASSNAME);
   cancelBtn.classList.remove(HIDDEN_CLASSNAME);
   noSleep.enable();
+  audioStart.play();
   if (state === 0) {
     console.log('state: ', state);
     state = 1;
