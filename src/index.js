@@ -7,7 +7,7 @@ import NoSleep from 'nosleep.js';
 
 var noSleep = new NoSleep();
 
-const contents = document.getElementById('contanier');
+const contents = document.getElementById('contanier-contents');
 const timerTxt = document.getElementById('timer');
 const startBtn = document.getElementById('start-btn');
 const cancelBtn = document.getElementById('cancel-btn');
