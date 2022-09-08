@@ -7,7 +7,7 @@ import NoSleep from 'nosleep.js';
 
 var noSleep = new NoSleep();
 
-const contents = document.getElementById('contanier');
+const contents = document.getElementById('contanier-contents');
 const timerTxt = document.getElementById('timer');
 const startBtn = document.getElementById('start-btn');
 const cancelBtn = document.getElementById('cancel-btn');
@@ -35,10 +35,10 @@ breakMin.addEventListener('change', () => {
 });
 
 //Timer default value
-// let START_TIME = 5;
-// let BREAK_TIME = 3;
-let START_TIME = 25 * 60;
-let BREAK_TIME = 5 * 60;
+let START_TIME = 5;
+let BREAK_TIME = 3;
+// let START_TIME = 25 * 60;
+// let BREAK_TIME = 5 * 60;
 
 //set Timer
 submitMin.addEventListener('click', () => {
