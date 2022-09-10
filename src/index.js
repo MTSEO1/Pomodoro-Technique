@@ -174,7 +174,9 @@ function onClickCancel() {
     noSleep.disable();
     state = 0;
     contents.classList.remove('break-mode');
-    timerTxt.innerHTML = `${START_TIME / 60} 분 00 초`;
+    timerTxt.innerHTML = `${
+      START_TIME / 60 < 10 ? `0${START_TIME / 60}` : START_TIME / 60
+    } 분 00 초`;
     console.log('state: ', state);
     startBtn.classList.remove(HIDDEN_CLASSNAME);
     pauseBtn.classList.add(HIDDEN_CLASSNAME);
