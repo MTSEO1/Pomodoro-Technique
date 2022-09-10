@@ -58,3 +58,7 @@ JavaScript, HTML, CSS 사용.
   - Wake lock API 추가 (noSleep.js 사용 이유 - the original richtr/NoSleep.js to help reduce CPU usage.) https://npm.io/package/nosleep.js
 - (2022-09-05)
   - Safari Browser 에서 알람소리 안 나는 거 수정
+- (2022-09-08)
+  - Update CSS for Responsive Web #1 (계속해서 업데이트 할 예정)
+- (2022-09-10)
+  - 타이머 가독성 향상을 위해 분(min) / 초(sec)가 10 이하일 경우 앞에 0을 붙임 (삼항연산자 사용)
