@@ -48,7 +48,9 @@ submitMin.addEventListener('click', () => {
     onClickCancel();
     BREAK_TIME = setBreakMin * 60;
     START_TIME = setTimerMin * 60;
-    timerTxt.innerHTML = `${START_TIME / 60} 분 0 초`;
+    timerTxt.innerHTML = `${
+      START_TIME / 60 < 10 ? `0${START_TIME / 60}` : START_TIME / 60
+    } 분 00 초`;
     console.log('적용완료!');
   } else alert('시간을 올바르게 지정해 주세요.');
 });
@@ -68,12 +70,15 @@ let autostate = 0; // 0 = off, 1 = on
 const HIDDEN_CLASSNAME = 'hidden';
 
 let getTimer = null;
-
+`🍅 ${min} : ${sec}`;
 const timer = () => {
   min = parseInt(time / 60);
   sec = parseInt(time % 60);
-  title.innerHTML = `🍅 ${min} : ${sec}`;
-  timerTxt.innerHTML = `${min} 분 ${sec} 초`;
+  title.innerHTML =
+    '🍅 ' + `${min < 10 ? `0${min}` : min} : ${sec < 10 ? `0${sec}` : sec}`;
+  timerTxt.innerHTML = `${min < 10 ? `0${min}` : min} 분 ${
+    sec < 10 ? `0${sec}` : sec
+  } 초`;
   time--;
   if (time < 0 && state === 1) {
     clearTimeout(getTimer);
@@ -169,7 +174,7 @@ function onClickCancel() {
     noSleep.disable();
     state = 0;
     contents.classList.remove('break-mode');
-    timerTxt.innerHTML = `${START_TIME / 60} 분 0 초`;
+    timerTxt.innerHTML = `${START_TIME / 60} 분 00 초`;
     console.log('state: ', state);
     startBtn.classList.remove(HIDDEN_CLASSNAME);
     pauseBtn.classList.add(HIDDEN_CLASSNAME);
