@@ -60,6 +60,12 @@ button {
   font-size: 40px;
 }
 
+#counter {
+  position: absolute;
+  top: 20px;
+  left: 35px;
+}
+
 #open-set {
   position: absolute;
   cursor: pointer;
