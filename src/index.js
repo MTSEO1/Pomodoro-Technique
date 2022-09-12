@@ -21,6 +21,12 @@ const title = document.querySelector('title');
 const autoTime = document.getElementById('auto-time');
 const soundBtn = document.getElementById('sound-btn');
 
+//Counter
+const count = document.getElementById('counter');
+let counter = 0;
+count.innerHTML = `counter : ${counter}`;
+
+//Set Time
 let setTimerMin = parseInt(timerMin.value);
 let setBreakMin = parseInt(breakMin.value);
 
@@ -35,10 +41,10 @@ breakMin.addEventListener('change', () => {
 });
 
 //Timer default value
-// let START_TIME = 5;
-// let BREAK_TIME = 3;
-let START_TIME = 25 * 60;
-let BREAK_TIME = 5 * 60;
+let START_TIME = 5;
+let BREAK_TIME = 3;
+// let START_TIME = 25 * 60;
+// let BREAK_TIME = 5 * 60;
 
 //set Timer
 submitMin.addEventListener('click', () => {
@@ -88,11 +94,15 @@ const timer = () => {
       timerTxt.innerHTML = '끝, 휴식 시작할까요?';
       title.innerHTML = '🍅 뽀모도로';
       state = 3;
+      counter += 1;
+      count.innerHTML = `counter : ${counter}`;
       startBtn.classList.remove(HIDDEN_CLASSNAME);
       pauseBtn.classList.add(HIDDEN_CLASSNAME);
       cancelBtn.classList.add(HIDDEN_CLASSNAME);
     } else {
       state = 3;
+      counter += 1;
+      count.innerHTML = `counter : ${counter}`;
       onClickStart();
     }
   } else if (time < 0 && state === 3) {
@@ -178,6 +188,8 @@ function onClickCancel() {
       START_TIME / 60 < 10 ? `0${START_TIME / 60}` : START_TIME / 60
     } 분 00 초`;
     console.log('state: ', state);
+    counter = 0;
+    count.innerHTML = `counter : ${counter}`;
     startBtn.classList.remove(HIDDEN_CLASSNAME);
     pauseBtn.classList.add(HIDDEN_CLASSNAME);
     cancelBtn.classList.add(HIDDEN_CLASSNAME);
