@@ -41,10 +41,10 @@ breakMin.addEventListener('change', () => {
 });
 
 //Timer default value
-let START_TIME = 5;
-let BREAK_TIME = 3;
-// let START_TIME = 25 * 60;
-// let BREAK_TIME = 5 * 60;
+// let START_TIME = 5;
+// let BREAK_TIME = 3;
+let START_TIME = 25 * 60;
+let BREAK_TIME = 5 * 60;
 
 //set Timer
 submitMin.addEventListener('click', () => {
@@ -57,6 +57,8 @@ submitMin.addEventListener('click', () => {
     timerTxt.innerHTML = `${
       START_TIME / 60 < 10 ? `0${START_TIME / 60}` : START_TIME / 60
     } 분 00 초`;
+    counter = 0;
+    count.innerHTML = `counter : ${counter}`;
     console.log('적용완료!');
   } else alert('시간을 올바르게 지정해 주세요.');
 });

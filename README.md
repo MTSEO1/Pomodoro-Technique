@@ -55,7 +55,7 @@ JavaScript, HTML, CSS 사용.
 - (2022-09-02)
   - 휴식 시간 시 컨텐츠 박스 색깔 변경 기능 추가
 - (2022-09-04)
-  - Wake lock API 추가 (noSleep.js 사용 이유 - the original richtr/NoSleep.js to help reduce CPU usage.) https://npm.io/package/nosleep.js
+  - Wake lock 라이브러리 추가 (noSleep.js 사용 이유 - the original richtr/NoSleep.js to help reduce CPU usage.) https://npm.io/package/nosleep.js
 - (2022-09-05)
   - Safari Browser 에서 알람소리 안 나는 거 수정
 - (2022-09-08)
@@ -64,3 +64,5 @@ JavaScript, HTML, CSS 사용.
   - 타이머 가독성 향상을 위해 분(min) / 초(sec)가 10 미만일 경우 앞에 0을 붙임 (삼항연산자 사용)
 - (2022-09-12)
   - 카운터 추가
+- (2022-09-13)
+  - 시간 설정시 카운터 초기화
