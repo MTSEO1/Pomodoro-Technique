@@ -49,18 +49,18 @@ let BREAK_TIME = 5 * 60;
 //set Timer
 submitMin.addEventListener('click', () => {
   if (setTimerMin > 60 || setBreakMin > 60) {
-    alert('시간을 올바르게 지정해 주세요.');
+    alert('Please specify the exact time.');
   } else if (setTimerMin > 0 && setBreakMin > 0) {
     onClickCancel();
     BREAK_TIME = setBreakMin * 60;
     START_TIME = setTimerMin * 60;
     timerTxt.innerHTML = `${
       START_TIME / 60 < 10 ? `0${START_TIME / 60}` : START_TIME / 60
-    } 분 00 초`;
+    } : 00`;
     counter = 0;
     count.innerHTML = `counter : ${counter}`;
     console.log('적용완료!');
-  } else alert('시간을 올바르게 지정해 주세요.');
+  } else alert('Please specify the exact time.');
 });
 
 //Timer
@@ -84,16 +84,16 @@ const timer = () => {
   sec = parseInt(time % 60);
   title.innerHTML =
     '🍅 ' + `${min < 10 ? `0${min}` : min} : ${sec < 10 ? `0${sec}` : sec}`;
-  timerTxt.innerHTML = `${min < 10 ? `0${min}` : min} 분 ${
+  timerTxt.innerHTML = `${min < 10 ? `0${min}` : min} : ${
     sec < 10 ? `0${sec}` : sec
-  } 초`;
+  }`;
   time--;
   if (time < 0 && state === 1) {
     clearTimeout(getTimer);
     audioPlay();
 
     if (autostate === 0) {
-      timerTxt.innerHTML = '끝, 휴식 시작할까요?';
+      timerTxt.innerHTML = 'Finish! Take a Break.';
       title.innerHTML = '🍅 뽀모도로';
       state = 3;
       counter += 1;
@@ -112,7 +112,7 @@ const timer = () => {
     audioPlay();
 
     if (autostate === 0) {
-      timerTxt.innerHTML = '휴식 끝, 다시 집중하시겠어요?';
+      timerTxt.innerHTML = "Finish! Let's focus now.";
       title.innerHTML = '🍅 뽀모도로';
       state = 0;
       startBtn.classList.remove(HIDDEN_CLASSNAME);
@@ -188,7 +188,7 @@ function onClickCancel() {
     contents.classList.remove('break-mode');
     timerTxt.innerHTML = `${
       START_TIME / 60 < 10 ? `0${START_TIME / 60}` : START_TIME / 60
-    } 분 00 초`;
+    } : 00`;
     console.log('state: ', state);
     counter = 0;
     count.innerHTML = `counter : ${counter}`;

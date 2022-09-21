@@ -181,6 +181,20 @@ input:checked[type='checkbox']::before {
   padding-bottom: 8px;
 }
 
+#timer-min {
+  font-size: 12px;
+  font-weight: bold;
+  height: 25px;
+  width: 40px;
+}
+
+#break-min {
+  font-size: 12px;
+  font-weight: bold;
+  height: 25px;
+  width: 40px;
+}
+
 #submit-min {
   width: 75px;
 }
